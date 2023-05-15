@@ -4,7 +4,7 @@
 @section('content')
     <div class="row">
         <h1>main</h1>
-        @foreach ($trains as $train)
+        @forelse ($trains as $train)
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">{{ $train->Azienda }}</h5>
@@ -18,10 +18,16 @@
                     <a href="#" class="card-link">Buy ticket on web site</a>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <div class="alert alert-danger" role="alert">
+                Nessun treno nella data odierna
+            </div>
+
+        @endempty
 
 
 
-    </div>
+
+</div>
 
 @endsection
